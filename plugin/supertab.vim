@@ -669,8 +669,8 @@ function! s:EnableNoCompleteAfterReset() " {{{
         \ '<bs>': s:CaptureKeyMap('<bs>'),
         \ '<c-h>': s:CaptureKeyMap('<c-h>'),
       \ }
-    imap <buffer> <bs> <c-r>=<SID>CompletionReset("\<lt>bs>")<cr>
-    imap <buffer> <c-h> <c-r>=<SID>CompletionReset("\<lt>c-h>")<cr>
+    imap <silent> <buffer> <bs> <c-r>=<SID>CompletionReset("\<lt>bs>")<cr>
+    imap <silent> <buffer> <c-h> <c-r>=<SID>CompletionReset("\<lt>c-h>")<cr>
   endif
 endfunction " }}}
 
@@ -709,8 +709,8 @@ function! s:CaptureKeyPresses() " {{{
       let b:captured[c] = existing
       exec 'imap <buffer> ' . c . ' <c-r>=<SID>CompletionReset("' . c . '")<cr>'
     endfor
-    imap <buffer> <bs> <c-r>=<SID>CompletionReset("\<lt>bs>")<cr>
-    imap <buffer> <c-h> <c-r>=<SID>CompletionReset("\<lt>c-h>")<cr>
+    imap <silent> <buffer> <bs> <c-r>=<SID>CompletionReset("\<lt>bs>")<cr>
+    imap <silent> <buffer> <c-h> <c-r>=<SID>CompletionReset("\<lt>c-h>")<cr>
   endif
 endfunction " }}}
 
@@ -973,8 +973,8 @@ endfunction " }}}
 
   inoremap <silent> <c-x> <c-r>=<SID>ManualCompletionEnter()<cr>
 
-  imap <script> <Plug>SuperTabForward <c-r>=SuperTab('n')<cr>
-  imap <script> <Plug>SuperTabBackward <c-r>=SuperTab('p')<cr>
+  imap <silent> <script> <Plug>SuperTabForward <c-r>=SuperTab('n')<cr>
+  imap <silent> <script> <Plug>SuperTabBackward <c-r>=SuperTab('p')<cr>
 
   let s:has_dict_maparg = v:version > 703 || (v:version == 703 && has('patch32'))
 
